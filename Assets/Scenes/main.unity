@@ -135,8 +135,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a8fc7cd6da54ac6b8ebb6237fb2cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candyPrefab: {fileID: 1317923103199598, guid: a76e3bbdd35c842a2a35581dcf73d7d5,
-    type: 2}
+  candyPrefabs:
+  - {fileID: 100000, guid: 98690239db7dc463aa82e6dbae84ed76, type: 2}
+  - {fileID: 100000, guid: 4930935afc23442feb9b39a059381bf8, type: 2}
+  - {fileID: 100000, guid: 2335e02f120f84bd0b6607f59c2fa3bd, type: 2}
+  - {fileID: 100000, guid: 3d0f1135c2f1a4df6a1f6f6213d70261, type: 2}
+  - {fileID: 100000, guid: 06833c955adae458f98df106ce92be3d, type: 2}
+  - {fileID: 100000, guid: 9a44e95bb285342fcba745b391be8eae, type: 2}
+  - {fileID: 100000, guid: ed286f5f5cfd04fbcbefbbe72ba37198, type: 2}
+  - {fileID: 100000, guid: 8d324dacc377641e99f39b49b734b6fb, type: 2}
+  - {fileID: 100000, guid: 491ab7f8f517f45afbcbf3e80bbec4cd, type: 2}
+  - {fileID: 100000, guid: 6dc08fff0cea245fc96b63f3ba993a56, type: 2}
+  - {fileID: 100000, guid: 99cf26105a7b540a4b2cff954be1f173, type: 2}
   randomPosRadius: 20
   ceiling: {x: -22, y: 35, z: 11}
 --- !u!4 &37305691
@@ -150,7 +160,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &61675545
 GameObject:
@@ -181,7 +191,7 @@ Transform:
   - {fileID: 889582551}
   - {fileID: 487950253}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &97012325
 GameObject:
@@ -265,7 +275,7 @@ Transform:
   m_LocalScale: {x: 5, y: 3, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &97012330
 MonoBehaviour:
@@ -756,6 +766,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 3, z: 1}
   m_Center: {x: 14, y: -13.5, z: -0.6}
+--- !u!1 &690230408 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: bd3a7a773fe02354da0a4d8dbabd8cbb, type: 3}
+  m_PrefabInternal: {fileID: 1747812787}
+--- !u!65 &690230409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 690230408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 49.22, y: 0.2, z: 49.7731}
+  m_Center: {x: -24.6, y: -0.06, z: -24.38655}
 --- !u!1 &753505257
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +974,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &889582550
 GameObject:
@@ -1052,7 +1078,7 @@ BoxCollider:
   m_GameObject: {fileID: 1024896702}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 49.811394, y: 0.2708694, z: 49.2162}
   m_Center: {x: -0.088727, y: -0.29394853, z: -0.41533184}
@@ -1084,7 +1110,7 @@ Transform:
   m_Children:
   - {fileID: 753505258}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1318627303
 MonoBehaviour:
@@ -1143,6 +1169,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 51, y: 3, z: 1}
   m_Center: {x: -1, y: -13.5, z: -0.6}
+--- !u!1001 &1661573587
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.677658
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0000018099951
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &1674677384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,3 +1884,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 51, y: 3, z: 1}
   m_Center: {x: -1, y: -13.5, z: -0.6}
+--- !u!1 &2117268603 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 59c3c11c0511e47a08fa1baba305ce5f, type: 3}
+  m_PrefabInternal: {fileID: 1661573587}
+--- !u!54 &2117268604
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117268603}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &2117268605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117268603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.397818, y: 0.085103, z: 0.39781898}
+  m_Center: {x: 0, y: 0.0425505, z: -0.0000004991889}

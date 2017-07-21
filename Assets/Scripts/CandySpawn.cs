@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CandySpawn : MonoBehaviour {
 
-	public GameObject candyPrefab;
+	public GameObject[] candyPrefabs;
 
 	float currentFrame;
 
@@ -28,8 +28,14 @@ public class CandySpawn : MonoBehaviour {
 	}
 
 	private void generateCandy(){
-		GameObject candy = GameObject.Instantiate(candyPrefab, generatePos(), generateRot(),transform);
+		GameObject candy = GameObject.Instantiate(candyPrefabs[Random.Range(0,candyPrefabs.Length-1)], generatePos(), generateRot(),transform);
 //		candy.AddComponent (Rigidbody);
+		candy.transform.localScale = new Vector3(3,3,3);
+		Rigidbody rb = candy.AddComponent<Rigidbody>();
+		rb.mass = 2;
+		rb.useGravity = true;
+//		candy.AddComponent<MeshCollider> ();
+		candy.AddComponent<BoxCollider>();
 		candy.name = "candy" + candies.Count.ToString();
 		candies.Add(candy);
 	}
