@@ -46,7 +46,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+     <Compile Include="Assets\SteamVR\Editor\SteamVR_Editor.cs" />
+     <Compile Include="Assets\SteamVR\Editor\SteamVR_Preferences.cs" />
+     <Compile Include="Assets\SteamVR\Editor\SteamVR_RenderModelEditor.cs" />
+     <Compile Include="Assets\SteamVR\Editor\SteamVR_Settings.cs" />
+     <Compile Include="Assets\SteamVR\Editor\SteamVR_SkyboxEditor.cs" />
+     <Compile Include="Assets\SteamVR\Editor\SteamVR_Update.cs" />
+     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
+     <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
+     <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />
+     <None Include="Assets\ExternalModels\HoloIKAvatar\Shaders\AvatarShader.shader" />
+     <None Include="Assets\ExternalModels\Candy_Heaven_Pack\UAS_CHP_Readme.txt" />
+     <None Include="Assets\SteamVR\InteractionSystem\Teleport\Shaders\Highlight.shader" />
+     <None Include="Assets\ExternalModels\HoloIKAvatar\Shaders\UnlitColorTexture.shader" />
+     <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
+     <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />
+     <None Include="Assets\SteamVR\readme.txt" />
+     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\Silhouette.shader" />
+     <None Include="Assets\SteamVR\Resources\SteamVR_ColorOut.shader" />
+     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\SeeThru.shader" />
+     <None Include="Assets\SteamVR\InteractionSystem\Readme_InteractionSystem.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
