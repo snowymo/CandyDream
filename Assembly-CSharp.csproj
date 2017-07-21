@@ -46,10 +46,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\HoloIKSystem.cs" />
+     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\IK\ArmIK.cs" />
+     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\IK\HipsIK.cs" />
+     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\IK\LegIK.cs" />
+     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\IK\TorsoIK.cs" />
+     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\SplineLimb.cs" />
      <Compile Include="Assets\Scripts\CandySpawn.cs" />
      <Compile Include="Assets\Scripts\GameControl.cs" />
      <Compile Include="Assets\Scripts\RecordText.cs" />
-     <None Include="Assets\Candy_Heaven_Pack\UAS_CHP_Readme.txt" />
+     <None Include="Assets\ExternalModels\HoloIKAvatar\Shaders\AvatarShader.shader" />
+     <None Include="Assets\ExternalModels\Candy_Heaven_Pack\UAS_CHP_Readme.txt" />
+     <None Include="Assets\ExternalModels\HoloIKAvatar\Shaders\UnlitColorTexture.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

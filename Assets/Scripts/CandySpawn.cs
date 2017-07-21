@@ -10,7 +10,7 @@ public class CandySpawn : MonoBehaviour {
 
 	List<GameObject> candies;
 
-	public float randomPosRadius = 15f;
+	public float randomPosRadius = 2f;
 
 	public Vector3 ceiling;
 
@@ -19,7 +19,7 @@ public class CandySpawn : MonoBehaviour {
 		candies = new List<GameObject> ();
 
 		// Starting in 2 seconds, generateCandy will be launched every 1 seconds
-		InvokeRepeating("generateCandy", 2.0f, 2f);
+		InvokeRepeating("generateCandy", 2.0f, 1f);
 	}
 	
 	// Update is called once per frame
@@ -30,7 +30,7 @@ public class CandySpawn : MonoBehaviour {
 	private void generateCandy(){
 		GameObject candy = GameObject.Instantiate(candyPrefabs[Random.Range(0,candyPrefabs.Length-1)], generatePos(), generateRot(),transform);
 //		candy.AddComponent (Rigidbody);
-		candy.transform.localScale = new Vector3(3,3,3);
+		candy.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
 		Rigidbody rb = candy.AddComponent<Rigidbody>();
 		rb.mass = 2;
 		rb.useGravity = true;
