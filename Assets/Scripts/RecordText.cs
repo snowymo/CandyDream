@@ -19,4 +19,9 @@ public class RecordText : MonoBehaviour {
 //		count = Random.Range (5, 10);
 		countText.text = "Record: " + count.ToString ();
 	}
+
+    private void OnDestroy()
+    {
+        WriteToFile.write2csv(Application.dataPath + "/record/score.csv", new string[1] { count.ToString() });
+    }
 }

@@ -84,11 +84,15 @@
     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\IK\LegIK.cs" />
     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\IK\TorsoIK.cs" />
     <Compile Include="Assets\ExternalModels\HoloIKAvatar\Scripts\SplineLimb.cs" />
+    <Compile Include="Assets\Scripts\BIPRecord.cs" />
     <Compile Include="Assets\Scripts\CandySpawn.cs" />
     <Compile Include="Assets\Scripts\ControllerGrabObject.cs" />
+    <Compile Include="Assets\Scripts\DisRecord.cs" />
     <Compile Include="Assets\Scripts\GameControl.cs" />
+    <Compile Include="Assets\Scripts\GazeRecord.cs" />
     <Compile Include="Assets\Scripts\RecordText.cs" />
     <Compile Include="Assets\Scripts\ViveControllerInputTest.cs" />
+    <Compile Include="Assets\Scripts\WriteToFile.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
