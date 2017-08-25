@@ -1,0 +1,39 @@
+# Written by MakeHuman 1.1.1
+version v1.1.1
+tags male
+camera 20.0 0.5 -1.0 0.486830273801 0.00807240170977 1.0625
+modifier breast/breast-trans-down|up 1.000000
+modifier macrodetails-universal/Muscle 1.000000
+modifier macrodetails/African 0.254000
+modifier macrodetails-proportions/BodyProportions 0.704000
+modifier torso/torso-scale-horiz-decr|incr -0.186000
+modifier breast/nipple-point-decr|incr -0.132000
+modifier torso/torso-trans-backward|forward -0.484000
+modifier macrodetails/Gender 1.000000
+modifier torso/torso-scale-vert-decr|incr 0.186000
+modifier macrodetails-height/Height 0.514000
+modifier breast/BreastSize 0.615000
+modifier head/head-invertedtriangular 0.456000
+modifier torso/torso-trans-down|up -0.044000
+modifier macrodetails/Age 0.486000
+modifier breast/BreastFirmness 1.000000
+modifier macrodetails/Asian 0.492000
+modifier breast/breast-point-decr|incr 0.088000
+modifier head/head-oval 0.033000
+modifier macrodetails/Caucasian 0.254000
+modifier torso/torso-scale-depth-decr|incr 0.164000
+modifier breast/nipple-size-decr|incr -1.000000
+modifier breast/breast-dist-decr|incr 0.384000
+modifier macrodetails-universal/Weight 0.128000
+modifier breast/breast-volume-vert-down|up 0.164000
+hair short04 e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8
+skeleton game_engine.mhskel
+eyes HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6
+pose tpose.bvh
+clothes shoes01 6e0c552e-e207-44df-8f70-c9bfdeddd8c6
+clothes male_casualsuit06 be449715-fd7d-49d1-bca1-7fdd4264bc2d
+clothesHideFaces True
+skinMaterial skins/middleage_asian_female/middleage_asian_female.mhmat
+material short04 e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8 short04.mhmat
+material HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brown.mhmat
+subdivide False

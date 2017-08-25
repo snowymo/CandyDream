@@ -8,7 +8,7 @@ using Holojam.Avatar.IK;
 
 		public string label;
 
-//		public string[] mocapLabels = new string[4] { "_lefthand", "_righthand", "_leftankle", "_rightankle" };
+		public string[] mocapLabels = new string[4] { "_lefthand", "_righthand", "_leftankle", "_rightankle" };
 
 		public Transform head;
 		public Transform leftHand;
