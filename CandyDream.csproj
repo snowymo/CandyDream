@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\GameControl.cs" />
     <Compile Include="Assets\Scripts\GazeRecord.cs" />
     <Compile Include="Assets\Scripts\RecordText.cs" />
+    <Compile Include="Assets\Scripts\TransformAssignment.cs" />
     <Compile Include="Assets\Scripts\ViveControllerInputTest.cs" />
     <Compile Include="Assets\Scripts\WriteToFile.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />

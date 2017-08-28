@@ -14,12 +14,16 @@ public class CandySpawn : MonoBehaviour {
 
 	public Vector3 ceiling;
 
+    public float startInNSec;
+
+    public float spawnEveryNSec;
+
 	// Use this for initialization
 	void Start () {
 		candies = new List<GameObject> ();
 
 		// Starting in 2 seconds, generateCandy will be launched every 1 seconds
-		InvokeRepeating("generateCandy", 2.0f, 1f);
+		InvokeRepeating("generateCandy", startInNSec, spawnEveryNSec);
 	}
 	
 	// Update is called once per frame
