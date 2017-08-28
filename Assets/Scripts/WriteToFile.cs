@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using UnityEngine;
+using System;
 
 public class WriteToFile {
 
@@ -31,9 +32,25 @@ public class WriteToFile {
         }
         string newline = buildcsv(content);
         using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@path, true))
+            new System.IO.StreamWriter(path, true))
         {
             file.WriteLine(newline);
+			Debug.Log (newline);
         }
     }
+
+	public static void writeheader(string path, string[] content)
+	{
+		if (!File.Exists(path))
+		{
+			File.Create(path);
+		}
+		string newline = buildcsv(content);
+		StreamWriter file = new StreamWriter(@path, true);
+		file.WriteLine(newline);
+		file.Flush();
+		file.Close ();
+//			Debug.Log (newline);
+
+	}
 }

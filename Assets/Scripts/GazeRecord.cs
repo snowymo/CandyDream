@@ -19,15 +19,23 @@ public class GazeRecord : MonoBehaviour {
     {
         for (int i = 0; i < comparedObjs.Length; i++)
             compareVecs[i] = comparedObjs[i].position - Camera.main.transform.position;
-        compareVecs[compareVecs.Length - 1] = Vector3.forward;
+		compareVecs[compareVecs.Length - 1] = Camera.main.transform.rotation * Vector3.forward;
     }
 
 	// Use this for initialization
 	void Start () {
         compareVecs = new Vector3[comparedObjs.Length + 1];
         updatePos();
-		contents = new string[maxWriteSize];
+		contents = new string[maxWriteSize + comparedObjs.Length];
 		contentIdx = 0;
+
+		string[] header = new string[4];
+		header [0] = "chair to collider angle";
+		header [1] = "table to collider angle";
+		header [2] = "audience to collider angle";
+//		header [3] = "gaze to collider angle";
+		WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header);
+//		WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header);
 	}
 	
 	// Update is called once per frame
@@ -53,12 +61,15 @@ public class GazeRecord : MonoBehaviour {
             for(int i = 0; i < comparedObjs.Length; i++)
             {
                 float angle = Vector3.Angle(compareVecs[i], hitInfo.collider.gameObject.transform.position);
+//				print ("contentIdx " + contentIdx);
 				contents[contentIdx++] = angle.ToString();
             }
 			contents [contentIdx-1] += "\n";
 			if (contentIdx >= maxWriteSize) {
+				print ("gaze " + Time.time);
 				WriteToFile.write2csv(Application.dataPath + "/record/" + gazeFilePath, contents);
 				contentIdx = 0;
+				print ("gaze " + Time.time);
 			}
         }
     }

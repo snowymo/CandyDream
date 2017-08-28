@@ -21,6 +21,11 @@ public class BIPRecord : MonoBehaviour
     {
 		contents = new string[maxWriteSize];
 		contentIdx = 0;
+
+		string[] header = new string[1];
+		header[0] = "controllerToClosetCandies";
+		WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header);
+//		WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header);
     }
 
     // Update is called once per frame
@@ -39,8 +44,10 @@ public class BIPRecord : MonoBehaviour
 //        contents[0] = minDis.ToString();
 		contents[contentIdx++] = minDis.ToString() + "\n";
 		if (contentIdx >= maxWriteSize) {
+			print ("BIP: " + Time.time);
 			WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents);
 			contentIdx = 0;
+			print (Time.time);
 		}
 //		WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents);
     }

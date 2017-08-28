@@ -19,6 +19,16 @@ public class DisRecord : MonoBehaviour {
     void Start () {
 		contents = new string[maxWriteSize+becomparedObjs.Length * compareObjs.Length];
 		contentIdx = 0;
+
+		string[] header = new string[6];
+		header [0] = "pos to chair dis";
+		header [1] = "pos to table dis";
+		header [2] = "pos to audience dis";
+		header [3] = "controller to chair dis";
+		header [4] = "controller to table dis";
+		header [5] = "controller to audience dis";
+		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
+//		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
 	}
 	
 	// Update is called once per frame
@@ -35,8 +45,10 @@ public class DisRecord : MonoBehaviour {
         }
 		contents [contentIdx-1] += "\n"; 
 		if (contentIdx >= maxWriteSize) {
+			print ("dis " + Time.time);
 			WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents);
 			contentIdx = 0;
+			print ("dis " + Time.time);
 		}
 //        WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents);
     }
