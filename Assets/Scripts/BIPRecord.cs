@@ -9,18 +9,29 @@ public class BIPRecord : MonoBehaviour
 
     public Transform becomparedObj;  // controller
 
-    public string disFilePath;
+    public string bipFilePath;
+
+	static int maxWriteSize = 10000;
+	[SerializeField]
+	string[] contents;
+	int contentIdx;
 
     // Use this for initialization
     void Start()
     {
+		contents = new string[maxWriteSize];
+		contentIdx = 0;
 
+		string[] header = new string[1];
+		header[0] = "controllerToClosetCandies";
+		WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header);
+//		WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header);
     }
 
     // Update is called once per frame
     void Update()
     {
-        string[] contents = new string[1];
+//        string[] contents = new string[1];
         float minDis = 20.0f;
         for (int i = 0; i < compareObjs.childCount; i++)
         {
@@ -30,7 +41,28 @@ public class BIPRecord : MonoBehaviour
                 minDis = curDis;
 
         }
-        contents[0] = minDis.ToString();
-        WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents);
+//        contents[0] = minDis.ToString();
+		contents[contentIdx++] = minDis.ToString() + "\n";
+		if (contentIdx >= maxWriteSize) {
+			print ("BIP: " + Time.time);
+			WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents);
+			contentIdx = 0;
+			print (Time.time);
+		}
+//		WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents);
     }
+
+	void OnApplicationQuit(){
+		if (contentIdx > 0) {
+			WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents);
+			contentIdx = 0;
+		}
+	}
+
+	void OnApplicationPause(){
+		if (contentIdx > 0) {
+			WriteToFile.write2csv (Application.dataPath + "/record/" + bipFilePath, contents);
+			contentIdx = 0;
+		}
+	}
 }
