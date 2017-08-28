@@ -11,6 +11,10 @@ public class GazeRecord : MonoBehaviour {
 
     public string gazeFilePath;
 
+	static int maxWriteSize = 10000;
+	string[] contents;
+	int contentIdx;
+
     void updatePos()
     {
         for (int i = 0; i < comparedObjs.Length; i++)
@@ -22,6 +26,8 @@ public class GazeRecord : MonoBehaviour {
 	void Start () {
         compareVecs = new Vector3[comparedObjs.Length + 1];
         updatePos();
+		contents = new string[maxWriteSize];
+		contentIdx = 0;
 	}
 	
 	// Update is called once per frame
@@ -43,14 +49,31 @@ public class GazeRecord : MonoBehaviour {
             // hitInfo's collider GameObject represents the hologram being gazed at
             // here I record the angle between [forward,table,chair,other user]
             print("gaze at " + hitInfo.collider.name);
-            string[] contents = new string[compareVecs.Length];
+//            string[] contents = new string[compareVecs.Length];
             for(int i = 0; i < comparedObjs.Length; i++)
             {
                 float angle = Vector3.Angle(compareVecs[i], hitInfo.collider.gameObject.transform.position);
-                contents[i] = angle.ToString();
-                
+				contents[contentIdx++] = angle.ToString();
             }
-            WriteToFile.write2csv(Application.dataPath + "/record/" + gazeFilePath, contents);
+			contents [contentIdx-1] += "\n";
+			if (contentIdx >= maxWriteSize) {
+				WriteToFile.write2csv(Application.dataPath + "/record/" + gazeFilePath, contents);
+				contentIdx = 0;
+			}
         }
     }
+
+	void OnApplicationQuit(){
+		if (contentIdx > 0) {
+			WriteToFile.write2csv(Application.dataPath + "/record/" + gazeFilePath, contents);
+			contentIdx = 0;
+		}
+	}
+
+	void OnApplicationPause(){
+		if (contentIdx > 0) {
+			WriteToFile.write2csv (Application.dataPath + "/record/" + gazeFilePath, contents);
+			contentIdx = 0;
+		}
+	}
 }

@@ -20,8 +20,12 @@ public class RecordText : MonoBehaviour {
 		countText.text = "Record: " + count.ToString ();
 	}
 
-    private void OnDestroy()
+	void OnApplicationQuit()
     {
         WriteToFile.write2csv(Application.dataPath + "/record/score.csv", new string[1] { count.ToString() });
     }
+
+	void OnApplicationPause(){
+		WriteToFile.write2csv(Application.dataPath + "/record/score.csv", new string[1] { count.ToString() });
+	}
 }
