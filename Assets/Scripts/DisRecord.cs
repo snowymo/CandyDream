@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class DisRecord : MonoBehaviour {
 
@@ -11,9 +12,14 @@ public class DisRecord : MonoBehaviour {
     public string disFilePath;
 
 	static int maxWriteSize = 10000;
-	[SerializeField]
+	//[SerializeField]
 	string[] contents;
 	int contentIdx;
+
+    bool _threadRunning;
+    Thread _thread;
+
+    string datapath;
 
     // Use this for initialization
     void Start () {
@@ -28,8 +34,10 @@ public class DisRecord : MonoBehaviour {
 		header [4] = "controller to table dis";
 		header [5] = "controller to audience dis";
 		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
-//		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
-	}
+        //		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
+
+        datapath = Application.dataPath;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -45,25 +53,62 @@ public class DisRecord : MonoBehaviour {
         }
 		contents [contentIdx-1] += "\n"; 
 		if (contentIdx >= maxWriteSize) {
-			print ("dis " + Time.time);
-			WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents);
+            string[] copycontents = new string[contents.Length];
+            contents.CopyTo(copycontents, 0);
+            _thread = new Thread(ThreadedWork);
+            _thread.Start(copycontents);
+
+            print ("dis " + Time.time);
+			//WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents);
 			contentIdx = 0;
 			print ("dis " + Time.time);
 		}
 //        WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents);
     }
 
-	void OnApplicationQuit(){
+    void ThreadedWork(object copycontents)
+    {
+        _threadRunning = true;
+        bool workDone = false;
+
+        // This pattern lets us interrupt the work at a safe point if neeeded.
+        while (_threadRunning && !workDone)
+        {
+            WriteToFile.write2csv(datapath + "/record/" + disFilePath, (string[])copycontents);
+            workDone = true;
+        }
+        _threadRunning = false;
+    }
+
+    void OnApplicationQuit(){
 		if (contentIdx > 0) {
 			WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents);
 			contentIdx = 0;
 		}
-	}
+        if (_threadRunning)
+        {
+            // This forces the while loop in the ThreadedWork function to abort.
+            _threadRunning = false;
+
+            // This waits until the thread exits,
+            // ensuring any cleanup we do after this is safe. 
+            _thread.Join();
+        }
+    }
 
 	void OnApplicationPause(){
 		if (contentIdx > 0) {
 			WriteToFile.write2csv (Application.dataPath + "/record/" + disFilePath, contents);
 			contentIdx = 0;
 		}
-	}
+        if (_threadRunning)
+        {
+            // This forces the while loop in the ThreadedWork function to abort.
+            _threadRunning = false;
+
+            // This waits until the thread exits,
+            // ensuring any cleanup we do after this is safe. 
+            _thread.Join();
+        }
+    }
 }

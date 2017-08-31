@@ -30,12 +30,15 @@ public class WriteToFile {
         {
             File.Create(path);
         }
+        //Debug.Log("before build " + Time.time);
         string newline = buildcsv(content);
+        //Debug.Log("after build " + Time.time);
         using (System.IO.StreamWriter file =
             new System.IO.StreamWriter(path, true))
         {
+
             file.WriteLine(newline);
-			Debug.Log (newline);
+			//Debug.Log ("here we go " + Time.time);
         }
     }
 

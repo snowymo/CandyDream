@@ -1,0 +1,244 @@
+fileFormatVersion: 2
+guid: 54c7a53d762d0264780244b4d6839fbc
+timeCreated: 1503889740
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: 1
+    100002: 2
+    100004: 3
+    100006: 4
+    100008: 5
+    100010: 6
+    100012: am
+    100014: amortig
+    100016: amortig_2
+    100018: Array
+    100020: Camera
+    100022: Cube
+    100024: Cube_2
+    100026: Cube_3
+    100028: d
+    100030: d_2
+    100032: Disc
+    100034: eje
+    100036: escenario
+    100038: estrib
+    100040: gb
+    100042: gb_2
+    100044: gb_3
+    100046: https___www_facebook_com_stectoons
+    100048: Light
+    100050: Light_1
+    100052: Light_2
+    100054: Light_3
+    100056: Light_4
+    100058: Null_1
+    100060: side
+    100062: Sky
+    100064: Sky_1
+    100066: Sweep_NURBS
+    100068: t1
+    100070: t2
+    100072: t3
+    100074: t4
+    100076: t4_2
+    100078: w1
+    100080: w1_2
+    100082: w1_MeshPart0
+    100084: w1_MeshPart1
+    100086: weel
+    100088: weel_2
+    100090: weels
+    100092: //RootNode
+    100094: Wooden_Cart_
+    400000: 1
+    400002: 2
+    400004: 3
+    400006: 4
+    400008: 5
+    400010: 6
+    400012: am
+    400014: amortig
+    400016: amortig_2
+    400018: Array
+    400020: Camera
+    400022: Cube
+    400024: Cube_2
+    400026: Cube_3
+    400028: d
+    400030: d_2
+    400032: Disc
+    400034: eje
+    400036: escenario
+    400038: estrib
+    400040: gb
+    400042: gb_2
+    400044: gb_3
+    400046: https___www_facebook_com_stectoons
+    400048: Light
+    400050: Light_1
+    400052: Light_2
+    400054: Light_3
+    400056: Light_4
+    400058: Null_1
+    400060: side
+    400062: Sky
+    400064: Sky_1
+    400066: Sweep_NURBS
+    400068: t1
+    400070: t2
+    400072: t3
+    400074: t4
+    400076: t4_2
+    400078: w1
+    400080: w1_2
+    400082: w1_MeshPart0
+    400084: w1_MeshPart1
+    400086: weel
+    400088: weel_2
+    400090: weels
+    400092: //RootNode
+    400094: Wooden_Cart_
+    2000000: Camera
+    2300000: 1
+    2300002: 2
+    2300004: 3
+    2300006: 4
+    2300008: 5
+    2300010: 6
+    2300012: amortig
+    2300014: Cube
+    2300016: Cube_2
+    2300018: d
+    2300020: Disc
+    2300022: eje
+    2300024: gb_2
+    2300026: Sweep_NURBS
+    2300028: t1
+    2300030: t2
+    2300032: t3
+    2300034: t4
+    2300036: w1_MeshPart0
+    2300038: w1_MeshPart1
+    3300000: 1
+    3300002: 2
+    3300004: 3
+    3300006: 4
+    3300008: 5
+    3300010: 6
+    3300012: amortig
+    3300014: Cube
+    3300016: Cube_2
+    3300018: d
+    3300020: Disc
+    3300022: eje
+    3300024: gb_2
+    3300026: Sweep_NURBS
+    3300028: t1
+    3300030: t2
+    3300032: t3
+    3300034: t4
+    3300036: w1_MeshPart0
+    3300038: w1_MeshPart1
+    4300000: Cube
+    4300002: Disc
+    4300004: w1_MeshPart0
+    4300006: w1_MeshPart1
+    4300008: Sweep_NURBS
+    4300010: t3
+    4300012: d
+    4300014: t2
+    4300016: t1
+    4300018: eje
+    4300020: gb_2
+    4300022: Cube_2
+    4300024: t4
+    4300026: amortig
+    4300028: 6
+    4300030: 5
+    4300032: 4
+    4300034: 3
+    4300036: 1
+    4300038: 2
+    9500000: //RootNode
+    10800000: Light_1
+    10800002: Light_2
+    10800004: Light_3
+    10800006: Light_4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
