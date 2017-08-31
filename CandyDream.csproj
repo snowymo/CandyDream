@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\GameControl.cs" />
     <Compile Include="Assets\Scripts\GazeRecord.cs" />
+    <Compile Include="Assets\Scripts\PosRecord.cs" />
     <Compile Include="Assets\Scripts\RecordText.cs" />
     <Compile Include="Assets\Scripts\ThemeSelection.cs" />
     <Compile Include="Assets\Scripts\TransformAssignment.cs" />

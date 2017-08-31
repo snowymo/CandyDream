@@ -33,7 +33,7 @@ public class BIPRecord : MonoBehaviour
 
         datapath = Application.dataPath;
 
-        WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header);
+        WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header, 1);
         //		WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header);
 
         
@@ -53,7 +53,7 @@ public class BIPRecord : MonoBehaviour
 
         }
 //        contents[0] = minDis.ToString();
-		contents[contentIdx++] = minDis.ToString() + "\n";
+		//contents[contentIdx++] = minDis.ToString() + "\n";
         
 		if (contentIdx >= maxWriteSize) {
             string[] copycontents = new string[contents.Length];
@@ -83,7 +83,7 @@ public class BIPRecord : MonoBehaviour
         // This pattern lets us interrupt the work at a safe point if neeeded.
         while (_threadRunning && !workDone)
         {
-            WriteToFile.write2csv(datapath + "/record/" + bipFilePath, (string[])copycontents);
+            WriteToFile.write2csv(datapath + "/record/" + bipFilePath, (string[])copycontents, 1);
             workDone = true;
         }
         _threadRunning = false;
@@ -99,7 +99,7 @@ public class BIPRecord : MonoBehaviour
             yield return null;
 
             // Do Work...
-            WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents);
+            WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents, 1);
             workDone = true;
         }
         
@@ -107,7 +107,7 @@ public class BIPRecord : MonoBehaviour
 
 	void OnApplicationQuit(){
 		if (contentIdx > 0) {
-			WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents);
+			WriteToFile.write2csv(Application.dataPath + "/record/" + bipFilePath, contents, 1);
 			contentIdx = 0;
 		}
         if (_threadRunning)
@@ -123,7 +123,7 @@ public class BIPRecord : MonoBehaviour
 
 	void OnApplicationPause(){
 		if (contentIdx > 0) {
-			WriteToFile.write2csv (Application.dataPath + "/record/" + bipFilePath, contents);
+			WriteToFile.write2csv (Application.dataPath + "/record/" + bipFilePath, contents, 1);
 			contentIdx = 0;
 		}
         if (_threadRunning)

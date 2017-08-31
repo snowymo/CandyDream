@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 
-public class DisRecord : MonoBehaviour {
+public class PosRecord : MonoBehaviour {
 
-    public Transform[] compareObjs;
+    public Transform[] logObjs;
+    
 
-    public Transform[] becomparedObjs;  // pos, controller
+    public string posFilePath;
 
-    public string disFilePath;
-
-	static int maxWriteSize = 10000;
+	static int maxWriteSize = 15000;
 	//[SerializeField]
 	string[] contents;
 	int contentIdx;
@@ -23,17 +22,19 @@ public class DisRecord : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		contents = new string[maxWriteSize+becomparedObjs.Length * compareObjs.Length];
+		contents = new string[maxWriteSize+logObjs.Length];
 		contentIdx = 0;
 
-		string[] header = new string[6];
-		header [0] = "pos to chair dis";
-		header [1] = "pos to table dis";
-		header [2] = "pos to audience dis";
-		header [3] = "controller to chair dis";
-		header [4] = "controller to table dis";
-		header [5] = "controller to audience dis";
-		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header, 6);
+		string[] header = new string[8];
+		header [0] = "user x";
+		header [1] = "user y";
+		header [2] = "table x";
+		header [3] = "table y";
+		header [4] = "chair x";
+		header [5] = "chair y";
+        header[6] = "audience x";
+        header[7] = "audience y";
+		WriteToFile.writeheader(Application.dataPath + "/record/" + posFilePath, header, 8);
         //		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
 
         datapath = Application.dataPath;
@@ -42,16 +43,13 @@ public class DisRecord : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 //        string[] contents = new string[becomparedObjs.Length * compareObjs.Length];
-        for (int j = 0; j < becomparedObjs.Length; j++)
+        for (int i = 0; i < logObjs.Length; i++)
         {
-            for (int i = 0; i < compareObjs.Length; i++)
-            {
-                float dis = Vector3.Distance(compareObjs[i].position, becomparedObjs[j].position);
 //                contents[j * compareObjs.Length + i] = dis.ToString();
-				contents[contentIdx++] = dis.ToString();
-            }
+			contents[contentIdx++] = logObjs[i].position.x.ToString();
+            contents[contentIdx++] = logObjs[i].position.y.ToString();
         }
-		//contents [contentIdx-1] += "\n"; 
+		//xcontents [contentIdx-1] += "\n"; 
 		if (contentIdx >= maxWriteSize) {
             string[] copycontents = new string[contents.Length];
             contents.CopyTo(copycontents, 0);
@@ -74,7 +72,7 @@ public class DisRecord : MonoBehaviour {
         // This pattern lets us interrupt the work at a safe point if neeeded.
         while (_threadRunning && !workDone)
         {
-            WriteToFile.write2csv(datapath + "/record/" + disFilePath, (string[])copycontents, 6);
+            WriteToFile.write2csv(datapath + "/record/" + posFilePath, (string[])copycontents, 8);
             workDone = true;
         }
         _threadRunning = false;
@@ -82,7 +80,7 @@ public class DisRecord : MonoBehaviour {
 
     void OnApplicationQuit(){
 		if (contentIdx > 0) {
-			WriteToFile.write2csv(Application.dataPath + "/record/" + disFilePath, contents, 6);
+			WriteToFile.write2csv(Application.dataPath + "/record/" + posFilePath, contents, 8);
 			contentIdx = 0;
 		}
         if (_threadRunning)
@@ -98,7 +96,7 @@ public class DisRecord : MonoBehaviour {
 
 	void OnApplicationPause(){
 		if (contentIdx > 0) {
-			WriteToFile.write2csv (Application.dataPath + "/record/" + disFilePath, contents, 6);
+			WriteToFile.write2csv (Application.dataPath + "/record/" + posFilePath, contents, 8);
 			contentIdx = 0;
 		}
         if (_threadRunning)

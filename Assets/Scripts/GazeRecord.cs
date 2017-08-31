@@ -40,7 +40,7 @@ public class GazeRecord : MonoBehaviour {
 		header [1] = "table to collider angle";
 		header [2] = "audience to collider angle";
 //		header [3] = "gaze to collider angle";
-		WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header);
+		WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header, 3);
         //		WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header);
         datapath = Application.dataPath;
     }
@@ -50,15 +50,15 @@ public class GazeRecord : MonoBehaviour {
 
         updatePos();
 
-        RaycastHit hitInfo;
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 20, Color.green);
-        if (Physics.Raycast(
-                Camera.main.transform.position,
-                Camera.main.transform.forward,
-                out hitInfo,
-                20.0f,
-                Physics.DefaultRaycastLayers))
-        {
+        //RaycastHit hitInfo;
+        Debug.DrawRay(Camera.main.transform.position, (compareVecs[compareVecs.Length - 1]) * 20, Color.green);
+        //if (Physics.Raycast(
+        //        Camera.main.transform.position,
+        //        Camera.main.transform.forward,
+        //        out hitInfo,
+        //        20.0f,
+        //        Physics.DefaultRaycastLayers))
+        //{
             // If the Raycast has succeeded and hit a hologram
             // hitInfo's point represents the position being gazed at
             // hitInfo's collider GameObject represents the hologram being gazed at
@@ -68,11 +68,11 @@ public class GazeRecord : MonoBehaviour {
             //print("gaze start " + Time.time);
             for(int i = 0; i < comparedObjs.Length; i++)
             {
-                float angle = Vector3.Angle(compareVecs[i], hitInfo.collider.gameObject.transform.position);
+                float angle = Vector3.Angle(compareVecs[i], compareVecs[compareVecs.Length-1]);
 //				print ("contentIdx " + contentIdx);
 				contents[contentIdx++] = angle.ToString();
             }
-			contents [contentIdx-1] += "\n";
+			//contents [contentIdx-1] += "\n";
 			if (contentIdx >= maxWriteSize) {
                 string[] copycontents = new string[contents.Length];
                 contents.CopyTo(copycontents, 0);
@@ -84,7 +84,7 @@ public class GazeRecord : MonoBehaviour {
 				//print ("gaze time " + Time.time);
 			}
             //print("gaze end " + Time.time);
-        }
+        //}
     }
 
     void ThreadedWork(object copycontents)
@@ -95,7 +95,7 @@ public class GazeRecord : MonoBehaviour {
         // This pattern lets us interrupt the work at a safe point if neeeded.
         while (_threadRunning && !workDone)
         {
-            WriteToFile.write2csv(datapath + "/record/" + gazeFilePath, (string[])copycontents);
+            WriteToFile.write2csv(datapath + "/record/" + gazeFilePath, (string[])copycontents, 3);
             workDone = true;
         }
         _threadRunning = false;
@@ -103,7 +103,7 @@ public class GazeRecord : MonoBehaviour {
 
     void OnApplicationQuit(){
 		if (contentIdx > 0) {
-			WriteToFile.write2csv(Application.dataPath + "/record/" + gazeFilePath, contents);
+			WriteToFile.write2csv(Application.dataPath + "/record/" + gazeFilePath, contents, 3);
 			contentIdx = 0;
 		}
         if (_threadRunning)
@@ -119,7 +119,7 @@ public class GazeRecord : MonoBehaviour {
 
 	void OnApplicationPause(){
 		if (contentIdx > 0) {
-			WriteToFile.write2csv (Application.dataPath + "/record/" + gazeFilePath, contents);
+			WriteToFile.write2csv (Application.dataPath + "/record/" + gazeFilePath, contents, 3);
 			contentIdx = 0;
 		}
         if (_threadRunning)

@@ -22,10 +22,10 @@ public class RecordText : MonoBehaviour {
 
 	void OnApplicationQuit()
     {
-        WriteToFile.write2csv(Application.dataPath + "/record/score.csv", new string[1] { count.ToString() });
+        WriteToFile.write2csv(Application.dataPath + "/record/score.csv", new string[1] { count.ToString() }, 1);
     }
 
 	void OnApplicationPause(){
-		WriteToFile.write2csv(Application.dataPath + "/record/score.csv", new string[1] { count.ToString() });
+		WriteToFile.write2csv(Application.dataPath + "/record/score.csv", new string[1] { count.ToString() }, 1);
 	}
 }
