@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/env_neutral.unity
+- path: Assets/Scenes/prior_study.unity
   isLoaded: 1
   isActive: 1
