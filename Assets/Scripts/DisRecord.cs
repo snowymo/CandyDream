@@ -9,7 +9,7 @@ public class DisRecord : MonoBehaviour {
 
     public Transform[] becomparedObjs;  // pos, controller
 
-    public string disFilePath;
+    string disFilePath;
 
 	static int maxWriteSize = 10000;
 	//[SerializeField]
@@ -33,7 +33,10 @@ public class DisRecord : MonoBehaviour {
 		header [3] = "controller to chair dis";
 		header [4] = "controller to table dis";
 		header [5] = "controller to audience dis";
-		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header, 6);
+
+
+        disFilePath = GetComponent<prefixRecord>().generatePrefix() + "distance_record" + ".csv";
+        WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header, 6);
         //		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
 
         datapath = Application.dataPath;

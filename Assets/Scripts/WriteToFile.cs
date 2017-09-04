@@ -31,7 +31,8 @@ public class WriteToFile {
     {
         if (!File.Exists(path))
         {
-            File.Create(path);
+            File.Create(path).Dispose();
+            File.SetAttributes(path, FileAttributes.Normal);
         }
         //Debug.Log("before build " + Time.time);
         string newline = buildcsv(content, perline);
@@ -49,8 +50,9 @@ public class WriteToFile {
 	{
 		if (!File.Exists(path))
 		{
-			File.Create(path);
-		}
+			File.Create(path).Dispose();
+            File.SetAttributes(path, FileAttributes.Normal);
+        }
 		string newline = buildcsv(content, perline);
 		StreamWriter file = new StreamWriter(@path, true);
 		file.WriteLine(newline);

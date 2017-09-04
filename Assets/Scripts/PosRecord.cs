@@ -7,8 +7,7 @@ public class PosRecord : MonoBehaviour {
 
     public Transform[] logObjs;
     
-
-    public string posFilePath;
+    string posFilePath;
 
 	static int maxWriteSize = 15000;
 	//[SerializeField]
@@ -34,7 +33,9 @@ public class PosRecord : MonoBehaviour {
 		header [5] = "chair y";
         header[6] = "audience x";
         header[7] = "audience y";
-		WriteToFile.writeheader(Application.dataPath + "/record/" + posFilePath, header, 8);
+
+        posFilePath = GetComponent<prefixRecord>().generatePrefix() + "pos_record" + ".csv";
+        WriteToFile.writeheader(Application.dataPath + "/record/" + posFilePath, header, 8);
         //		WriteToFile.writeheader(Application.dataPath + "/record/" + disFilePath, header);
 
         datapath = Application.dataPath;

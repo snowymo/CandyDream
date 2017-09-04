@@ -10,7 +10,7 @@ public class BIPRecord : MonoBehaviour
 
     public Transform becomparedObj;  // controller
 
-    public string bipFilePath;
+    string bipFilePath;
 
 	static int maxWriteSize = 10000;
 	//[SerializeField]
@@ -33,6 +33,8 @@ public class BIPRecord : MonoBehaviour
 
         datapath = Application.dataPath;
 
+
+        bipFilePath = GetComponent<prefixRecord>().generatePrefix() + "bip_record" + ".csv";
         WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header, 1);
         //		WriteToFile.writeheader(Application.dataPath + "/record/" + bipFilePath, header);
 

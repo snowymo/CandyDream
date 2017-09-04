@@ -10,7 +10,7 @@ public class GazeRecord : MonoBehaviour {
 
     private Vector3[] compareVecs;
 
-    public string gazeFilePath;
+    string gazeFilePath;
 
 	static int maxWriteSize = 10000;
 	string[] contents;
@@ -20,6 +20,8 @@ public class GazeRecord : MonoBehaviour {
     Thread _thread;
 
     string datapath;
+
+    
 
     void updatePos()
     {
@@ -35,12 +37,14 @@ public class GazeRecord : MonoBehaviour {
 		contents = new string[maxWriteSize + comparedObjs.Length];
 		contentIdx = 0;
 
-		string[] header = new string[4];
+		string[] header = new string[3];
 		header [0] = "chair to collider angle";
 		header [1] = "table to collider angle";
 		header [2] = "audience to collider angle";
+        
+        gazeFilePath = GetComponent<prefixRecord>().generatePrefix() + "gaze_record" + ".csv";
 //		header [3] = "gaze to collider angle";
-		WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header, 3);
+        WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header, 3);
         //		WriteToFile.writeheader(Application.dataPath + "/record/" + gazeFilePath, header);
         datapath = Application.dataPath;
     }
