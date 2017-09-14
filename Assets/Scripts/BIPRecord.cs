@@ -55,7 +55,7 @@ public class BIPRecord : MonoBehaviour
 
         }
 //        contents[0] = minDis.ToString();
-		//contents[contentIdx++] = minDis.ToString() + "\n";
+		contents[contentIdx++] = minDis.ToString() + "\n";
         
 		if (contentIdx >= maxWriteSize) {
             string[] copycontents = new string[contents.Length];
